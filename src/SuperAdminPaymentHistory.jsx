@@ -126,11 +126,22 @@ const SuperAdminPaymentHistory = () => {
 
                                     <td className="px-5 py-4">
                                         {payment.paymentDate
-                                            ? new Date(payment.paymentDate).toLocaleDateString("en-IN")
+                                            ? new Date(payment.paymentDate).toLocaleDateString("en-GB", {
+                                                day: "2-digit",
+                                                month: "short",
+                                                year: "numeric",
+                                            })
                                             : "-"}
                                     </td>
+
                                     <td className="px-5 py-4">
-                                        {payment.adminId.packageExpiryDate || "-"}
+                                        {payment.adminId?.packageExpiryDate
+                                            ? new Date(payment.adminId.packageExpiryDate).toLocaleDateString("en-GB", {
+                                                day: "2-digit",
+                                                month: "short",
+                                                year: "numeric",
+                                            })
+                                            : "-"}
                                     </td>
                                 </tr>
                             ))

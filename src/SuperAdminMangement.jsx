@@ -62,7 +62,7 @@ const SuperAdminMangement = () => {
     }
   };
 
-  const filteredAdmins = admins.filter((admin) => {
+  const filteredAdmins = admins?.filter((admin) => {
     const searchText = search.toLowerCase();
 
     const matchSearch =
@@ -140,7 +140,7 @@ const SuperAdminMangement = () => {
               admins
             </p>
             <span className="text-2xl font-semibold text-gray-900 ">
-              {admins.length || 0}
+              {admins?.length || 0}
             </span>
           </div>
         </div>
@@ -205,7 +205,7 @@ const SuperAdminMangement = () => {
 
       <div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pb-20 lg:hidden mt-10">
-          {filteredAdmins.length === 0 ? (
+          {filteredAdmins?.length === 0 ? (
             <div className="col-span-full bg-white rounded-2xl border border-gray-200 p-10 text-center">
               <Users className="mx-auto mb-3 w-12 h-12 text-gray-400" />
               <h3 className="text-xl font-semibold text-gray-700">
@@ -216,7 +216,7 @@ const SuperAdminMangement = () => {
               </p>
             </div>
           ) : (
-            filteredAdmins.map((admin) => (
+            filteredAdmins?.map((admin) => (
               <div
                 key={admin._id}
                 className="

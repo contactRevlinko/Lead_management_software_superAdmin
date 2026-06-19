@@ -2,7 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
 import SuperAdminLogin from "./SuperAdminLogin";
-import SuperAdminRegister from "./SuperAdminRegister";
+
 import SuperAdminDashboard from "./SuperAdminDashboard";
 import SuperAdminPackages from "./SuperAdminPackages";
 import SuperAdminLayout from "./SuperAdminLayout";
@@ -17,7 +17,7 @@ function App() {
 
       <Routes>
         <Route path="/login-sa" element={<SuperAdminLogin />} />
-        <Route path="/register-sa" element={<SuperAdminRegister />} />
+      
 
         <Route path="/" element={<SuperAdminLayout />}>
           <Route index element={<Navigate to="/dashboard" />} />
