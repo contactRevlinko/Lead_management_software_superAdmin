@@ -180,7 +180,7 @@ const SuperAdminAddAdmin = ({ onClose, onSuccess }) => {
               </div>
             </div>
 
-            <div className="z-50">
+            <div>
               <h1 className="font-medium mb-1  text-sm text-gray-600">Business Type</h1>
               <SADropdown
                 value={businessType}
