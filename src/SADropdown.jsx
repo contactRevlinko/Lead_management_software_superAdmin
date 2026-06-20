@@ -14,12 +14,11 @@ const SADropdown = ({ value, options, onChange }) => {
 
             const dropdownHeight = Math.min(options.length * 40, 220);
 
-            if (spaceBelow >= dropdownHeight) {
+            // better logic
+            if (spaceBelow > dropdownHeight || spaceBelow > spaceAbove) {
                 setPosition("bottom");
-            } else if (spaceAbove >= dropdownHeight) {
-                setPosition("top");
             } else {
-                setPosition(spaceBelow > spaceAbove ? "bottom" : "top");
+                setPosition("top");
             }
         }
 
@@ -38,7 +37,7 @@ const SADropdown = ({ value, options, onChange }) => {
     }, []);
 
     return (
-        <div ref={ref} className="relative w-full">
+        <div ref={ref}  className="relative z-50 overflow-visible">
 
             {/* BUTTON */}
             <button

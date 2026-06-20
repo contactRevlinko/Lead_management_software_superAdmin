@@ -6,11 +6,23 @@ import SACustomCalendar from './SACustomCalender';
 
 const SuperAdminDashboard = () => {
 
+  const getCurrentMonthStart = () => {
+    const date = new Date();
+    return new Date(date.getFullYear(), date.getMonth(), 1)
+      .toISOString()
+      .split("T")[0];
+  };
+
+  const getToday = () => {
+    return new Date().toISOString().split("T")[0];
+  };
 
   const [totalAdmin, setTotalAdmin] = useState(0);
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [totalAmount , setTotalAmount] = useState(0)
+  const [startDate, setStartDate] = useState(getCurrentMonthStart());
+  const [endDate, setEndDate] = useState(getToday());
+  const [totalAmount, setTotalAmount] = useState(0);
+
+
   const fetchAdmin = async () => {
     const token = localStorage.getItem("superAdminToken");
 
@@ -43,9 +55,9 @@ const SuperAdminDashboard = () => {
     const data = await res.json();
     console.log(data);
     setTotalAmount(data.totalAmount);
-  }; 
+  };
 
-  
+
   useEffect(() => {
     fetchAmount();
   }, []);
@@ -55,13 +67,14 @@ const SuperAdminDashboard = () => {
   }, [startDate, endDate]);
 
   return (
-    <div className='h-screen'>
+    <div className="w-full">
 
-      <h1 className="text-3xl font-bold text-slate-900 mb-10">
+      <h1 className="text-3xl font-bold text-slate-900 mb-8">
         Overview Dashboard
       </h1>
 
-      <div className="flex gap-3 mb-8 ">
+      {/* filters */}
+      <div className="flex flex-nowrap gap-3 mb-8 overflow-x-auto">
         <SACustomCalendar
           value={startDate}
           onChange={(val) => setStartDate(val)}
@@ -74,48 +87,39 @@ const SuperAdminDashboard = () => {
           placeholder="End Date"
         />
       </div>
-<div className='w-full flex gap-5  '>
 
-        <div className=" w-1/2 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-          <div className="flex items-start gap-5">
-            <div
-              className={`flex h-16 w-16 items-center justify-center rounded-2xl bg-pink-50 `}
-            >
-              <ListOrdered className={`h-8 w-8 text-pink-400`} />
+      {/* cards */}
+      <div className="grid lg:grid-cols-2 gap-6">
+
+        <div className="rounded-3xl border bg-white p-6 shadow-sm">
+          <div className="flex items-center gap-5">
+            <div className="h-14 w-14 flex items-center justify-center rounded-2xl bg-pink-50">
+              <ListOrdered className="h-7 w-7 text-pink-400" />
             </div>
 
             <div>
-              <p className="text-sm font-semibold text-slate-500">Total Admin</p>
-              <h2 className="mt-2 text-4xl font-bold text-slate-900">{totalAdmin}</h2>
+              <p className="text-sm text-slate-500 font-semibold">Total Admin</p>
+              <h2 className="text-3xl font-bold">{totalAdmin}</h2>
             </div>
           </div>
-
-
-
         </div>
 
-        <div className= " w-1/2 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm ">
-          <div className="flex items-start gap-5">
-            <div
-              className={`flex h-16 w-16 items-center justify-center rounded-2xl bg-green-50 `}
-            >
-              <IndianRupee className={`h-8 w-8 text-green-400`} />
+        <div className="rounded-3xl border bg-white p-6 shadow-sm">
+          <div className="flex items-center gap-5">
+            <div className="h-14 w-14 flex items-center justify-center rounded-2xl bg-green-50">
+              <IndianRupee className="h-7 w-7 text-green-400" />
             </div>
 
             <div>
-              <p className="text-sm font-semibold text-slate-500">Total revenew</p>
-              <h2 className="mt-2 text-4xl font-bold text-slate-900">{totalAmount}</h2>
+              <p className="text-sm text-slate-500 font-semibold">Total Revenue</p>
+              <h2 className="text-3xl font-bold">{totalAmount}</h2>
             </div>
           </div>
-
-
-
         </div>
-</div>
 
-
+      </div>
     </div>
-  )
+  );
 }
 
 export default SuperAdminDashboard

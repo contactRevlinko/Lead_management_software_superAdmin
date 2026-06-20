@@ -163,22 +163,25 @@ const SuperAdminMangement = () => {
         </div>
       </div>
 
-      <div className="mt-8 bg-white border border-gray-200 rounded-2xl p-4 flex flex-col lg:justify-between md:flex-row gap-4 ">
-        <input
-          type="text"
-          placeholder="Search by name, email or phone..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="w-full md:w-1/2 border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-500"
-        />
+      <div className="mt-8 bg-white border border-gray-200 rounded-2xl p-4 flex flex-col lg:flex-row lg:items-center gap-4 flex-wrap">  
+       <input
+  type="text"
+  placeholder="Search by name, email or phone..."
+  value={search}
+  onChange={(e) => setSearch(e.target.value)}
+  className="w-full lg:flex-1 border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-500"
+/>
 
-      <div className="flex gap-5 justify-between  ">
+      
+        <div className="w-full sm:w-auto min-w-[160px] relative z-50">
           <SADropdown
             value={statusFilter}
             options={["All", "Active", "Inactive"]}
             onChange={setStatusFilter}
           />
+        </div>
 
+        <div className="w-full sm:w-auto min-w-[180px] relative z-50">
           <SADropdown
             value={packageFilter}
             onChange={setPackageFilter}
@@ -189,15 +192,18 @@ const SuperAdminMangement = () => {
               "ExpiredPackage",
             ]}
           />
-      </div>
-        <div>
+        </div>
+     
+        <div className="w-full sm:w-auto">
           <button
             onClick={() => setAddAdminModal(true)}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl font-medium transition"
+            className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl font-medium transition"
           >
             + Add Admin
           </button>
         </div>
+
+        
       </div>
 
 

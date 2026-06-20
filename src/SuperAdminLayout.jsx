@@ -11,30 +11,34 @@ const SuperAdminLayout = () => {
         return <Navigate to="/" />;
     }
 
-    const handleSideBar = () => {
-        setShowSideBar((prev) => !prev);
-    };
-
     return (
-        <div className="bg-indigo-50/50 min-h-screen overflow-x-hidden">
+        <div className="h-screen w-full overflow-hidden bg-indigo-50/50 flex">
+
+        
             {showSideBar && (
                 <div
-                    onClick={handleSideBar}
+                    onClick={() => setShowSideBar(false)}
                     className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm lg:hidden"
                 />
             )}
 
+          
             <SuperAdminSidebar
-                handleSideBar={handleSideBar}
                 showSideBar={showSideBar}
+                handleSideBar={() => setShowSideBar((p) => !p)}
             />
 
-            <div className="lg:ml-72 min-h-screen">
-                <SuperAdminTopbar handleSideBar={handleSideBar} />
+         
+            <div className="flex flex-col flex-1 h-screen overflow-hidden lg:ml-72">
 
-                <main className="pt-24 mx-5 overflow-x-hidden">
+           
+                <SuperAdminTopbar handleSideBar={() => setShowSideBar((p) => !p)} />
+
+              
+                <main className="flex-1 overflow-y-auto pt-24 px-5 pb-6">
                     <Outlet />
                 </main>
+
             </div>
         </div>
     );
