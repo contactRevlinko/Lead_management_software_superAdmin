@@ -16,8 +16,8 @@ function App() {
       <Toaster position="top-right" />
 
       <Routes>
-        <Route path="/login-sa" element={<SuperAdminLogin />} />
-      
+        <Route path="/" element={<SuperAdminLogin />} />
+
 
         <Route path="/" element={<SuperAdminLayout />}>
           <Route index element={<Navigate to="/dashboard" />} />
