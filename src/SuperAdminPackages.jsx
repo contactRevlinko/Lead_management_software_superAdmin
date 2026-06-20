@@ -60,6 +60,7 @@ const SuperAdminPackages = () => {
             toast.success("Plan deleted successfully");
             setDeletePopup(false);
             setSelectedId(null);
+            
         } catch (err) {
             console.log(err);
             toast.error("Error in deleting");

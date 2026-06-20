@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { IndianRupee } from "lucide-react";
+import { IndianRupee, Users } from "lucide-react";
 import toast from "react-hot-toast";
 
 const BASE_URL = import.meta.env.VITE_API_URL;
@@ -47,7 +47,100 @@ const SuperAdminPaymentHistory = () => {
                 </p>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-x-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pb-20 lg:hidden">
+                {payments.length === 0 ? (
+                    <div className="col-span-full bg-white rounded-2xl border border-gray-200 p-10 text-center">
+                        <Users className="mx-auto mb-3 w-12 h-12 text-gray-400" />
+                        <h3 className="text-xl font-semibold text-gray-700">
+                            No Payments Found
+                        </h3>
+                        <p className="text-gray-500 mt-2">
+                            Payment history will appear here.
+                        </p>
+                    </div>
+                ) : (
+                    payments.map((payment, index) => (
+                        <div
+                            key={payment._id}
+                            className="
+          bg-white rounded-2xl border border-gray-100
+          shadow-[0_12px_35px_rgba(15,23,42,0.10)]
+          p-4
+        "
+                        >
+                            {/* Header */}
+                            <div className="mb-4 flex justify-between items-start">
+                                <div>
+                                    <h1 className="text-lg font-bold text-gray-900 capitalize">
+                                         {index + 1} {payment.adminId?.name}
+                                    </h1>
+                                    <p className="text-xs text-gray-400 mt-1">
+                                        Payment Details
+                                    </p>
+                                </div>
+
+                                <span
+                                    className={`px-2 py-1 text-xs rounded-full ${payment.paymentVerified
+                                            ? "bg-green-100 text-green-700"
+                                            : "bg-red-100 text-red-700"
+                                        }`}
+                                >
+                                    {payment.paymentVerified ? "Verified" : "Pending"}
+                                </span>
+                            </div>
+
+                            {/* Info */}
+                            <div className="space-y-3 text-sm">
+                                <div className="grid grid-cols-[110px_1fr] items-center gap-3">
+                                    <p className="text-gray-500">Email</p>
+                                    <p className="text-gray-800 font-medium truncate">
+                                        {payment.adminId?.email}
+                                    </p>
+                                </div>
+
+                                <div className="grid grid-cols-[110px_1fr] items-center gap-3">
+                                    <p className="text-gray-500">Phone</p>
+                                    <p className="text-gray-800 font-medium">
+                                        {payment.adminId?.phone}
+                                    </p>
+                                </div>
+
+                                <div className="grid grid-cols-[110px_1fr] items-center gap-3">
+                                    <p className="text-gray-500">Package</p>
+                                    <p className="text-gray-800 font-medium">
+                                        {payment.packageName}
+                                    </p>
+                                </div>
+
+                                <div className="grid grid-cols-[110px_1fr] items-center gap-3">
+                                    <p className="text-gray-500">Duration</p>
+                                    <p className="text-gray-800 font-medium">
+                                        {payment.packageId?.duration}
+                                    </p>
+                                </div>
+
+                                <div className="grid grid-cols-[110px_1fr] items-center gap-3">
+                                    <p className="text-gray-500">Amount</p>
+                                    <p className="text-indigo-700 font-bold">
+                                        ₹ {payment.packagePrice}
+                                    </p>
+                                </div>
+
+                                <div className="grid grid-cols-[110px_1fr] items-center gap-3">
+                                    <p className="text-gray-500">Date</p>
+                                    <p className="text-gray-800 font-medium">
+                                        {payment.paymentDate
+                                            ? new Date(payment.paymentDate).toLocaleDateString()
+                                            : "-"}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                )}
+            </div>
+
+            <div className="bg-white hidden md:hidden lg:block rounded-2xl shadow-sm border border-gray-200 overflow-x-auto">
                 <table className="w-full text-sm text-left">
                     <thead className="bg-indigo-50 text-gray-700">
                         <tr>
