@@ -36,7 +36,7 @@ const SADropdown = ({ value, options, onChange }) => {
                 className={`
           ${value ? "bg-indigo-50" : "bg-white"}
           border sm:text-sm lg:text-md border-gray-300
-          rounded-md min-w-24 lg:min-w-36 lg:py-2 py-1
+          rounded-md min-w-24 lg:min-w-36 lg:py-2 py-1 z-50
         `}
                 onClick={handleDropdownToggle}
             >
