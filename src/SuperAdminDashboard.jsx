@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 const BASE_URL = import.meta.env.VITE_API_URL;
-import squreCard from '../../frontend/src/componenets/SqureCard';
+
 import { IndianRupee, ListOrdered } from 'lucide-react';
 import SACustomCalendar from './SACustomCalender';
 

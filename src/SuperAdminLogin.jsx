@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 const BASE_URL = import.meta.env.VITE_API_URL;
-import { validateEmail } from '../../frontend/src/utils/validation';
-import { validatePassword } from '../../frontend/src/utils/validation';
+import { validateEmail, validatePassword } from '../src/config/validate';
+
 import toast from "react-hot-toast";
 import { useNavigate, Link } from "react-router-dom";
 

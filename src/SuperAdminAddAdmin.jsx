@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Eye, EyeOff, MoveRight, X } from "lucide-react";
 import toast from "react-hot-toast";
-import { validateEmail, validatePassword } from "../../frontend/src/utils/validation";
+import { validateEmail, validatePassword } from "../src/config/validate";
 import SADropdown from "./SADropdown";
 
 const BASE_URL = import.meta.env.VITE_API_URL;
