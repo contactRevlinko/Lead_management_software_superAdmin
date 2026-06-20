@@ -8,7 +8,7 @@ const SuperAdminLayout = () => {
     const token = localStorage.getItem("superAdminToken");
 
     if (!token) {
-        return <Navigate to="/login-sa" />;
+        return <Navigate to="/" />;
     }
 
     const handleSideBar = () => {

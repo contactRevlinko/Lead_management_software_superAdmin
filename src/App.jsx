@@ -18,15 +18,12 @@ function App() {
       <Routes>
         <Route path="/" element={<SuperAdminLogin />} />
 
-
         <Route path="/" element={<SuperAdminLayout />}>
-          <Route index element={<Navigate to="/dashboard" />} />
           <Route path="dashboard" element={<SuperAdminDashboard />} />
           <Route path="admin-manage" element={<SuperAdminMangement />} />
           <Route path="packages" element={<SuperAdminPackages />} />
           <Route path="payment-history" element={<SuperAdminPaymentHistory />} />
           <Route path="razorpay-setting" element={<SuperAdminRazorpaysettin />} />
-
         </Route>
       </Routes>
     </>
