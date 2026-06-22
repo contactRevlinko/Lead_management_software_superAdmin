@@ -76,7 +76,11 @@ const SuperAdminMangement = () => {
       (statusFilter === "Inactive" && !admin.isActive);
 
     const matchPackage =
-      packageFilter === "All" || admin.subscriptionStatus === packageFilter;
+      packageFilter === "All" ||
+      packageFilter === "All Package" ||
+      (packageFilter === "ActivePackage" && admin.subscriptionStatus === "active") ||
+      (packageFilter === "InactivePackage" && admin.subscriptionStatus === "inactive") ||
+      (packageFilter === "ExpiredPackage" && admin.subscriptionStatus === "expired");
 
     return matchSearch && matchStatus && matchPackage;
   });
@@ -119,61 +123,67 @@ const SuperAdminMangement = () => {
   console.log(admins);
 
   return (
-    <div className="p-5">
-      <div>
-        <h1 className="text-3xl font-bold text-gray-800">Admin Management</h1>
-        <p className="text-gray-500 mt-1">
+    <div className="w-full">
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-slate-900">Admin Management</h1>
+        <p className="text-slate-500 text-sm mt-1">
           Manage all registered admins from one place.
         </p>
       </div>
 
       <div className="grid grid-cols-2 gap-5 mt-4">
-        <div className="flex md:gap-4 gap-2 md:m-1 w-full p-3 bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition">
+        <div className="flex items-center gap-4 w-full p-5 bg-white rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300">
           <div
-            className={`m-2 w-11 h-11 rounded-xl flex items-center justify-center bg-indigo-50 `}
+            className="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-50"
           >
             <Users size={22} className="text-indigo-500" />
           </div>
 
           <div>
-            <p className="text-gray-500 text-xs md:text-sm font-medium">
+            <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
               admins
             </p>
-            <span className="text-2xl font-semibold text-gray-900 ">
+            <h2 className="text-2xl font-bold text-gray-900 mt-1">
               {admins?.length || 0}
-            </span>
+            </h2>
           </div>
         </div>
 
-        <div className="flex md:gap-4 gap-2 md:m-1 w-full p-3 bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition">
+        <div className="flex items-center gap-4 w-full p-5 bg-white rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300">
           <div
-            className={`m-2 w-11 h-11 rounded-xl flex items-center justify-center bg-purple-50 `}
+            className="w-12 h-12 rounded-xl flex items-center justify-center bg-purple-50"
           >
             <HandCoins size={22} className="text-purple-500" />
           </div>
 
           <div>
-            <p className="text-gray-500 text-xs md:text-sm font-medium">
+            <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
               Total amount
             </p>
-            <span className="text-2xl font-semibold text-gray-900">
-              {/* {admins.length || 0} */} 0
-            </span>
+            <h2 className="text-2xl font-bold text-gray-900 mt-1">
+              0
+            </h2>
           </div>
         </div>
       </div>
 
-      <div className="mt-8 bg-white border border-gray-200 rounded-2xl p-4 flex flex-col lg:flex-row lg:items-center gap-4 flex-wrap">  
-       <input
-  type="text"
-  placeholder="Search by name, email or phone..."
-  value={search}
-  onChange={(e) => setSearch(e.target.value)}
-  className="w-full lg:flex-1 border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-500"
-/>
+      <div className="mt-8 bg-white/90 backdrop-blur-xl border border-indigo-100 rounded-3xl p-5 flex flex-col md:flex-row md:items-end gap-4 shadow-sm overflow-visible">  
+        
+        {/* Search Field */}
+        <div className="w-full md:flex-1">
+          <p className="text-gray-500 text-xs md:text-sm font-medium mb-1.5">Search Admins</p>
+          <input
+            type="text"
+            placeholder="Search by name, email or phone..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full h-11 border border-gray-300 bg-white rounded-xl px-4 text-sm outline-none transition-all focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
+          />
+        </div>
 
-      
-        <div className="w-full sm:w-auto min-w-[160px] relative z-50">
+        {/* Status Dropdown */}
+        <div className="w-full sm:w-1/2 md:w-auto md:min-w-[160px]">
+          <p className="text-gray-500 text-xs md:text-sm font-medium mb-1.5">Status</p>
           <SADropdown
             value={statusFilter}
             options={["All", "Active", "Inactive"]}
@@ -181,7 +191,9 @@ const SuperAdminMangement = () => {
           />
         </div>
 
-        <div className="w-full sm:w-auto min-w-[180px] relative z-50">
+        {/* Packages Dropdown */}
+        <div className="w-full sm:w-1/2 md:w-auto md:min-w-[180px]">
+          <p className="text-gray-500 text-xs md:text-sm font-medium mb-1.5">Packages</p>
           <SADropdown
             value={packageFilter}
             onChange={setPackageFilter}
@@ -194,16 +206,16 @@ const SuperAdminMangement = () => {
           />
         </div>
      
-        <div className="w-full sm:w-auto">
+        {/* Add Admin Button */}
+        <div className="w-full md:w-auto shrink-0">
           <button
             onClick={() => setAddAdminModal(true)}
-            className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl font-medium transition"
+            className="w-full h-11 bg-indigo-600 hover:bg-indigo-700 text-white px-6 rounded-xl font-semibold transition active:scale-[0.98] cursor-pointer flex items-center justify-center gap-1.5 shadow-sm shadow-indigo-100/30"
           >
             + Add Admin
           </button>
         </div>
 
-        
       </div>
 
 
@@ -212,7 +224,7 @@ const SuperAdminMangement = () => {
       <div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pb-20 lg:hidden mt-10">
           {filteredAdmins?.length === 0 ? (
-            <div className="col-span-full bg-white rounded-2xl border border-gray-200 p-10 text-center">
+            <div className="col-span-full bg-white rounded-3xl border border-slate-200/80 p-10 text-center shadow-sm">
               <Users className="mx-auto mb-3 w-12 h-12 text-gray-400" />
               <h3 className="text-xl font-semibold text-gray-700">
                 No Leads Found
@@ -225,11 +237,7 @@ const SuperAdminMangement = () => {
             filteredAdmins?.map((admin) => (
               <div
                 key={admin._id}
-                className="
-      bg-white rounded-2xl border border-gray-100
-      shadow-[0_12px_35px_rgba(15,23,42,0.10)]
-      p-4
-    "
+                className="bg-white rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-5 hover:shadow-md transition-all duration-300"
               >
                 {/* Header */}
                 <div className="mb-4">
@@ -340,11 +348,9 @@ const SuperAdminMangement = () => {
         </div>
       </div>
 
-      {/* desktop */}
-
       <div className="bg-white rounded-2xl border border-gray-200 mt-10 overflow-x-auto hidden lg:block">
         <table className="min-w-[1400px] w-full">
-          <thead className="bg-indigo-50 border-b border-gray-200">
+          <thead className="bg-indigo-50/60 border-b border-slate-200/80">
             <tr className="text-left">
               {[
                 "SR NO.",
@@ -361,7 +367,7 @@ const SuperAdminMangement = () => {
               ].map((head) => (
                 <th
                   key={head}
-                  className="p-6 text-sm font-semibold uppercase tracking-wider text-gray-500 whitespace-nowrap"
+                  className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 whitespace-nowrap"
                 >
                   {head}
                 </th>
@@ -372,7 +378,7 @@ const SuperAdminMangement = () => {
           <tbody>
             {filteredAdmins?.length === 0 ? (
               <tr>
-                <td colSpan="6" className="text-center py-16 text-gray-500">
+                <td colSpan="11" className="text-center py-16 text-gray-500">
                   <Users className="mx-auto mb-3 w-12 h-12 text-gray-400" />
                   <h3 className="text-xl font-semibold text-gray-700">
                     No admin Found
@@ -384,23 +390,23 @@ const SuperAdminMangement = () => {
               filteredAdmins?.map((admin, i) => (
                 <tr
                   key={admin._id}
-                  className="text-left text-gray-700 hover:bg-gray-50"
+                  className="border-b border-slate-100 text-left hover:bg-slate-50/60 transition-colors"
                 >
-                  <td className="px-6 py-5">{i + 1}</td>
+                  <td className="px-6 py-4 text-sm text-slate-600 font-medium">{i + 1}</td>
 
-                  <td className="px-6 py-5">{admin.name}</td>
+                  <td className="px-6 py-4 text-sm text-slate-600 font-medium">{admin.name}</td>
 
-                  <td className="px-6 py-5">{admin.phone}</td>
+                  <td className="px-6 py-4 text-sm text-slate-600 font-medium">{admin.phone}</td>
 
-                  <td className="px-6 py-5">{admin.email}</td>
+                  <td className="px-6 py-4 text-sm text-slate-600 font-medium">{admin.email}</td>
 
-                  <td className="px-6 py-5">
+                  <td className="px-6 py-4">
                     <span className="rounded-full bg-indigo-50 px-3 py-2 text-sm font-semibold text-indigo-700">
                       {admin.businessType || "-"}
                     </span>
                   </td>
 
-                  <td className="px-6 py-5">
+                  <td className="px-6 py-4 text-sm text-slate-600 font-medium">
                     {admin.createdAt
                       ? new Date(admin.createdAt).toLocaleDateString("en-GB", {
                         day: "2-digit",
@@ -410,7 +416,7 @@ const SuperAdminMangement = () => {
                       : "-"}
                   </td>
 
-                  <td className="px-6 py-5">
+                  <td className="px-6 py-3">
                     <label className="relative inline-flex items-center cursor-pointer">
                       <input
                         type="checkbox"
@@ -427,13 +433,13 @@ const SuperAdminMangement = () => {
                     </label>
                   </td>
 
-                  <td className="px-6 py-5">
+                  <td className="px-6 py-4 text-sm text-slate-600 font-medium">
                     {admin.paymentVerified ? "Yes" : "No"}
                   </td>
 
-                  <td className="px-6 py-5">{admin.packageAssigned || "-"}</td>
+                  <td className="px-6 py-4 text-sm text-slate-600 font-medium">{admin.packageAssigned || "-"}</td>
 
-                  <td className="px-6 py-5">
+                  <td className="px-6 py-4 text-sm text-slate-600 font-medium">
                     {admin.packageExpiryDate
                       ? new Date(admin.packageExpiryDate).toLocaleDateString(
                         "en-GB",
@@ -441,7 +447,7 @@ const SuperAdminMangement = () => {
                       : "-"}
                   </td>
 
-                  <td className="px-2 py-3">
+                  <td className="px-6 py-3">
                     <button
                       onClick={() => {
                         setSelectedId(admin._id);

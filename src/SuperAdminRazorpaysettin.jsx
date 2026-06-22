@@ -67,15 +67,16 @@ const SuperAdminRazorpaysettin = () => {
   }, []);
 
   return (
-    <div>
-      <div>
-        <h1 className="text-2xl font-bold text-gray-800 mb-2">
+    <div className="w-full">
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-slate-900">
           Razorpay Settings
         </h1>
 
-        <p className="text-sm text-gray-500 mb-6">
+        <p className="text-slate-500 text-sm mt-1">
           Save Razorpay Key ID and Secret. Backend will use these keys to create Razorpay order.
         </p>
+      </div>
 
         <div className="space-y-5">
           <div>
@@ -116,10 +117,6 @@ const SuperAdminRazorpaysettin = () => {
         </div>
 
       </div>
-
-
-
-    </div>
   )
 }
 

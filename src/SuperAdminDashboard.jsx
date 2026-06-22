@@ -68,51 +68,59 @@ const SuperAdminDashboard = () => {
 
   return (
     <div className="w-full">
-
-      <h1 className="text-3xl font-bold text-slate-900 mb-8">
-        Overview Dashboard
-      </h1>
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-slate-900">
+          Overview Dashboard
+        </h1>
+      </div>
 
       {/* filters */}
-      <div className="flex flex-nowrap gap-3 mb-8 overflow-x-auto">
-        <SACustomCalendar
-          value={startDate}
-          onChange={(val) => setStartDate(val)}
-          placeholder="Start Date"
-        />
+      <div className="flex w-full flex-nowrap gap-3 mb-8 overflow-visible ">
+      <div className='w-1/2'>
+          <p className="text-gray-500 text-xs md:text-sm font-medium">StartDate</p>
+          <SACustomCalendar
+            value={startDate}
+            onChange={(val) => setStartDate(val)}
+            placeholder="Start Date"
+          />
+      </div>
+  
+       <div className='w-1/2'>
+          <p className="text-gray-500 text-xs md:text-sm font-medium">EndDate</p>
 
-        <SACustomCalendar
-          value={endDate}
-          onChange={(val) => setEndDate(val)}
-          placeholder="End Date"
-        />
+          <SACustomCalendar
+            value={endDate}
+            onChange={(val) => setEndDate(val)}
+            placeholder="End Date"
+          />
+       </div>
       </div>
 
       {/* cards */}
       <div className="grid lg:grid-cols-2 gap-6">
 
-        <div className="rounded-3xl border bg-white p-6 shadow-sm">
-          <div className="flex items-center gap-5">
-            <div className="h-14 w-14 flex items-center justify-center rounded-2xl bg-pink-50">
-              <ListOrdered className="h-7 w-7 text-pink-400" />
+        <div className="bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm hover:shadow-md transition-all duration-300">
+          <div className="flex items-start gap-5">
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-pink-100">
+              <ListOrdered className="h-8 w-8 text-pink-600" />
             </div>
 
             <div>
-              <p className="text-sm text-slate-500 font-semibold">Total Admin</p>
-              <h2 className="text-3xl font-bold">{totalAdmin}</h2>
+              <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">TOTAL ADMIN</p>
+              <h2 className="mt-2 text-4xl font-bold text-slate-900">{totalAdmin}</h2>
             </div>
           </div>
         </div>
 
-        <div className="rounded-3xl border bg-white p-6 shadow-sm">
-          <div className="flex items-center gap-5">
-            <div className="h-14 w-14 flex items-center justify-center rounded-2xl bg-green-50">
-              <IndianRupee className="h-7 w-7 text-green-400" />
+        <div className="bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm hover:shadow-md transition-all duration-300">
+          <div className="flex items-start gap-5">
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-green-100">
+              <IndianRupee className="h-8 w-8 text-green-600" />
             </div>
 
             <div>
-              <p className="text-sm text-slate-500 font-semibold">Total Revenue</p>
-              <h2 className="text-3xl font-bold">{totalAmount}</h2>
+              <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">TOTAL REVENUE</p>
+              <h2 className="mt-2 text-4xl font-bold text-slate-900">{totalAmount}</h2>
             </div>
           </div>
         </div>

@@ -12,13 +12,13 @@ const SuperAdminLayout = () => {
     }
 
     return (
-        <div className="h-screen w-full overflow-hidden bg-indigo-50/50 flex">
+        <div className="h-screen w-full overflow-hidden bg-slate-50 flex">
 
         
             {showSideBar && (
                 <div
                     onClick={() => setShowSideBar(false)}
-                    className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm lg:hidden"
+                    className="fixed inset-0 z-[90] bg-black/40 backdrop-blur-sm lg:hidden"
                 />
             )}
 

@@ -13,7 +13,7 @@ const SuperAdminTopbar = ({ handleSideBar }) => {
     const handleLogout = () => {
         localStorage.removeItem("superAdminToken");
         localStorage.removeItem("superAdminUser");
-        navigate("/login-sa");
+        navigate("/");
     };
 
     useEffect(() => {
@@ -30,7 +30,7 @@ const SuperAdminTopbar = ({ handleSideBar }) => {
 
 
     return (
-        <div className="justify-between lg:justify-end fixed top-0 left-0 right-0 lg:left-72 h-20 lg:px-12 px-4 bg-indigo-50/50 border-b border-gray-300 z-10 flex items-center gap-3">
+        <div className="backdrop-blur-md justify-between lg:justify-end fixed top-0 left-0 right-0 lg:left-72 h-20 lg:px-12 px-4 bg-white/80 border-b border-slate-200/80 shadow-sm z-40 flex items-center gap-3">
             <PanelRight
                 onClick={handleSideBar}
                 className="lg:hidden cursor-pointer text-gray-700 w-6 h-6"

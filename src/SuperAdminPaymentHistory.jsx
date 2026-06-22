@@ -37,19 +37,19 @@ const SuperAdminPaymentHistory = () => {
     }, []);
 
     return (
-        <div className="p-4">
-            <div className="mb-6">
-                <h1 className="text-3xl font-bold text-gray-800">
+        <div className="w-full">
+            <div className="mb-8">
+                <h1 className="text-3xl font-bold text-slate-900">
                     Payment History
                 </h1>
-                <p className="text-gray-500 mt-1">
+                <p className="text-slate-500 text-sm mt-1">
                     All admin package payment details
                 </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pb-20 lg:hidden">
                 {payments.length === 0 ? (
-                    <div className="col-span-full bg-white rounded-2xl border border-gray-200 p-10 text-center">
+                    <div className="col-span-full bg-white rounded-3xl border border-slate-200/80 p-10 text-center shadow-sm">
                         <Users className="mx-auto mb-3 w-12 h-12 text-gray-400" />
                         <h3 className="text-xl font-semibold text-gray-700">
                             No Payments Found
@@ -62,11 +62,7 @@ const SuperAdminPaymentHistory = () => {
                     payments.map((payment, index) => (
                         <div
                             key={payment._id}
-                            className="
-          bg-white rounded-2xl border border-gray-100
-          shadow-[0_12px_35px_rgba(15,23,42,0.10)]
-          p-4
-        "
+                            className="bg-white rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-5 hover:shadow-md transition-all duration-300"
                         >
                             {/* Header */}
                             <div className="mb-4 flex justify-between items-start">
@@ -142,21 +138,21 @@ const SuperAdminPaymentHistory = () => {
 
             <div className="bg-white hidden md:hidden lg:block rounded-2xl shadow-sm border border-gray-200 overflow-x-auto">
                 <table className="w-full text-sm text-left">
-                    <thead className="bg-indigo-50 text-gray-700">
+                    <thead className="bg-indigo-50/60 border-b border-slate-200/80">
                         <tr>
-                            <th className="px-5 py-4">Sr No.</th>
-                            <th className="px-5 py-4">Admin Name</th>
-                            <th className="px-5 py-4">Admin Id</th>
-                            <th className="px-5 py-4">Email</th>
-                            <th className="px-5 py-4">Phone</th>
-                            <th className="px-5 py-4">Package Name</th>
-                            <th className="px-5 py-4">Duration</th>
-                            <th className="px-5 py-4">Package Price</th>
-                            <th className="px-5 py-4">Payment Status</th>
-                            <th className="px-5 py-4">Razorpay Order ID</th>
-                            <th className="px-5 py-4">Razorpay Payment ID</th>
-                            <th className="px-5 py-4">Package Expiry Date</th>
-                            <th className="px-5 py-4">Payment Date</th>
+                            <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 whitespace-nowrap">Sr No.</th>
+                            <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 whitespace-nowrap">Admin Name</th>
+                            <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 whitespace-nowrap">Admin Id</th>
+                            <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 whitespace-nowrap">Email</th>
+                            <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 whitespace-nowrap">Phone</th>
+                            <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 whitespace-nowrap">Package Name</th>
+                            <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 whitespace-nowrap">Duration</th>
+                            <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 whitespace-nowrap">Package Price</th>
+                            <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 whitespace-nowrap">Payment Status</th>
+                            <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 whitespace-nowrap">Razorpay Order ID</th>
+                            <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 whitespace-nowrap">Razorpay Payment ID</th>
+                            <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 whitespace-nowrap">Payment Date</th>
+                            <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-500 whitespace-nowrap">Package Expiry Date</th>
                         </tr>
                     </thead>
 
@@ -165,40 +161,40 @@ const SuperAdminPaymentHistory = () => {
                             payments.map((payment, index) => (
                                 <tr
                                     key={payment._id}
-                                    className="border-t border-gray-100 hover:bg-gray-50"
+                                    className="border-b border-slate-100 text-left hover:bg-slate-50/60 transition-colors"
                                 >
-                                    <td className="px-5 py-4">{index + 1}</td>
+                                    <td className="px-6 py-4 text-sm text-slate-600 font-medium">{index + 1}</td>
 
-                                    <td className="px-5 py-4 font-medium">
+                                    <td className="px-6 py-4 text-sm text-slate-600 font-medium">
                                         {payment.adminId?.name || "-"}
                                     </td>
-                                    <td className="px-5 py-4 font-medium">
+                                    <td className="px-6 py-4 text-sm text-slate-600 font-medium">
                                         {payment.adminId?._id || "-"}
                                     </td>
-                                    <td className="px-5 py-4">
+                                    <td className="px-6 py-4 text-sm text-slate-600 font-medium">
                                         {payment.adminId?.email || "-"}
                                     </td>
 
-                                    <td className="px-5 py-4">
+                                    <td className="px-6 py-4 text-sm text-slate-600 font-medium">
                                         {payment.adminId?.phone || "-"}
                                     </td>
 
-                                    <td className="px-5 py-4">
+                                    <td className="px-6 py-4 text-sm text-slate-600 font-medium">
                                         {payment.packageName || payment.packageId?.packageName || "-"}
                                     </td>
 
-                                    <td className="px-5 py-4">
+                                    <td className="px-6 py-4 text-sm text-slate-600 font-medium">
                                         {payment.packageId?.duration || "-"}
                                     </td>
 
-                                    <td className="px-5 py-4">
+                                    <td className="px-6 py-4 text-sm text-slate-600 font-medium">
                                         <div className="flex items-center text-indigo-700 font-semibold">
                                             <IndianRupee size={15} />
                                             {payment.packagePrice || payment.packageId?.price || 0}
                                         </div>
                                     </td>
 
-                                    <td className="px-5 py-4">
+                                    <td className="px-6 py-3">
                                         <span
                                             className={`px-3 py-1 rounded-full text-xs font-semibold ${payment.paymentVerified
                                                 ? "bg-green-100 text-green-700"
@@ -209,15 +205,15 @@ const SuperAdminPaymentHistory = () => {
                                         </span>
                                     </td>
 
-                                    <td className="px-5 py-4">
+                                    <td className="px-6 py-4 text-sm text-slate-600 font-medium">
                                         {payment.razorpayOrderId || "-"}
                                     </td>
 
-                                    <td className="px-5 py-4">
+                                    <td className="px-6 py-4 text-sm text-slate-600 font-medium">
                                         {payment.razorpayPaymentId || "-"}
                                     </td>
 
-                                    <td className="px-5 py-4">
+                                    <td className="px-6 py-4 text-sm text-slate-600 font-medium">
                                         {payment.paymentDate
                                             ? new Date(payment.paymentDate).toLocaleDateString("en-GB", {
                                                 day: "2-digit",
@@ -227,7 +223,7 @@ const SuperAdminPaymentHistory = () => {
                                             : "-"}
                                     </td>
 
-                                    <td className="px-5 py-4">
+                                    <td className="px-6 py-4 text-sm text-slate-600 font-medium">
                                         {payment.adminId?.packageExpiryDate
                                             ? new Date(payment.adminId.packageExpiryDate).toLocaleDateString("en-GB", {
                                                 day: "2-digit",
@@ -241,7 +237,7 @@ const SuperAdminPaymentHistory = () => {
                         ) : (
                             <tr>
                                 <td
-                                    colSpan="11"
+                                    colSpan="13"
                                     className="text-center py-10 text-gray-500"
                                 >
                                     No payment history found

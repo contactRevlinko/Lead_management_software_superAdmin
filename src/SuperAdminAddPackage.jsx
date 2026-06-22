@@ -80,23 +80,23 @@ const SuperAdminAddPackage = ({ setAddPackageModal, getAllPackages, addPackageMo
 
 
     return (
-        <div className="lg:w-1/2 w-[90%] m-auto">
-            <div className="lg:p-10 md:p-8 p-5 bg-white rounded">
-                <div className="flex justify-between border-b border-gray-300 md:pb-8 lg:pb-4 pb-2">
-                    <div>
-                        <h1 className="text-xl sm:text-2xl lg:text-4xl font-bold text-gray-900 mb-2">
-                            Create New Plan
-                        </h1>
-                        <p className="text-gray-600">Add new subscription package plan</p>
-                    </div>
-
-                    <button
-                        onClick={() => setAddPackageModal(false)}
-                        className="bg-indigo-100 text-indigo-700 font-medium md:w-12 md:h-12 lg:w-10 lg:h-10 w-7 h-7 hover:bg-indigo-200 rounded-lg flex items-center justify-center"
-                    >
-                        <X size={18} />
-                    </button>
+        <div className="relative bg-white w-full max-w-lg rounded-2xl shadow-xl overflow-hidden p-6">
+            <div className="flex justify-between border-b border-gray-100 pb-4 mb-6">
+                <div>
+                    <h1 className="text-2xl font-bold text-slate-900">
+                        Create New Plan
+                    </h1>
+                    <p className="text-slate-500 text-sm mt-1">Add new subscription package plan</p>
                 </div>
+
+                <button
+                    type="button"
+                    onClick={() => setAddPackageModal(false)}
+                    className="bg-indigo-100 text-indigo-700 font-medium md:w-12 md:h-12 lg:w-10 lg:h-10 w-7 h-7 hover:bg-indigo-200 rounded-lg flex items-center justify-center"
+                >
+                    <X size={18} />
+                </button>
+            </div>
 
                 <div className="lg:my-5 md:my-3 my-2 w-full">
                     <p className="text-sm mb-1 font-medium">Plan Name</p>
@@ -174,14 +174,12 @@ const SuperAdminAddPackage = ({ setAddPackageModal, getAllPackages, addPackageMo
                         />
                     </div>
                 </div>
-
-                <button
-                    className="w-full h-10 md:mt-5 text-white bg-indigo-700 rounded cursor-pointer hover:bg-indigo-800"
-                    onClick={createPlan}
-                >
-                    Save Plan
-                </button>
-            </div>
+                            <button
+                className="w-full h-10 md:mt-5 text-white bg-indigo-700 rounded cursor-pointer hover:bg-indigo-800"
+                onClick={createPlan}
+            >
+                Save Plan
+            </button>
         </div>
     );
 };

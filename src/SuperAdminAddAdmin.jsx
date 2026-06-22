@@ -79,28 +79,26 @@ const SuperAdminAddAdmin = ({ onClose, onSuccess }) => {
 
   return (
     <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/40 backdrop-blur-sm px-4">
-      <div className="relative bg-white w-full max-w-lg rounded-2xl shadow-xl max-h-[90vh] overflow-y-auto">
+      <div className="relative bg-white w-full max-w-lg rounded-2xl shadow-xl overflow-visible">
         <form onSubmit={handleRegister} className="p-6">
-      
-       <div className="flex gap-10">
-        
-            <div className="mb-6 text-center">
-              <h1 className="font-bold text-3xl text-black mb-2">
-                Create Admin
+          <div className="flex items-start justify-between mb-6 border-b border-gray-100 pb-4">
+            <div>
+              <h1 className="font-bold text-2xl text-slate-900">
+                Add Admin
               </h1>
-              <p className="text-gray-400 text-sm">
-                Helping businesses streamline their workflow and boost productivity
+              <p className="text-slate-500 text-sm mt-1">
+                Create a new administrator account
               </p>
             </div>
 
             <button
-            type="button"
+              type="button"
               onClick={onClose}
               className="bg-indigo-100 text-indigo-700 font-medium md:w-12 md:h-12 lg:w-10 lg:h-10 w-7 h-7 hover:bg-indigo-200 rounded-lg flex items-center justify-center"
             >
               <X size={24} />
             </button>
-       </div>
+          </div>
 
 
           <div className="flex flex-col gap-5">
