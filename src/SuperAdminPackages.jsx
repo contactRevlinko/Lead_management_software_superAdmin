@@ -75,7 +75,7 @@ const SuperAdminPackages = () => {
         <div className="w-full">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
                 <div>
-                    <h1 className="text-3xl font-bold text-slate-900">Packages</h1>
+                    <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Packages</h1>
                     <p className="text-slate-500 text-sm mt-1">
                         Manage all CRM subscription packages
                     </p>
@@ -83,7 +83,7 @@ const SuperAdminPackages = () => {
 
                 <button
                     onClick={() => setAddPackageModal(true)}
-                    className="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-xl font-semibold transition"
+                    className="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl font-semibold active:scale-[0.98] transition-all shadow-sm shadow-indigo-100/30"
                 >
                     <Plus size={18} />
                     Add Package
@@ -95,8 +95,8 @@ const SuperAdminPackages = () => {
                     <Loader2 className="animate-spin text-indigo-600" size={42} />
                 </div>
             ) : packages.length === 0 ? (
-                <div className="bg-white rounded-3xl border border-slate-200/80 shadow-sm p-10 text-center">
-                    <div className="mx-auto h-16 w-16 rounded-2xl bg-indigo-50 flex items-center justify-center mb-4">
+                <div className="bg-white rounded-2xl border border-slate-200/60 shadow-sm p-10 text-center">
+                    <div className="mx-auto h-16 w-16 rounded-xl border border-indigo-100 bg-indigo-50 flex items-center justify-center mb-4">
                         <PackageOpen className="text-indigo-600" size={34} />
                     </div>
                     <h2 className="text-xl font-bold text-gray-800">
@@ -111,7 +111,7 @@ const SuperAdminPackages = () => {
                     {packages.map((pkg, index) => (
                         <div
                             key={pkg._id || index}
-                            className="relative flex flex-col bg-white rounded-3xl border border-slate-200/80 shadow-sm p-6 hover:shadow-md transition-all duration-300"
+                            className="relative flex flex-col bg-white rounded-2xl border border-slate-200/60 shadow-sm p-6 hover:shadow-md transition-all duration-300"
                         >
                             {/* {index === 1 && (
                                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-xs font-semibold px-4 py-1 rounded-full">
@@ -136,17 +136,20 @@ const SuperAdminPackages = () => {
                                     </div>
                                 </div>
                             </div>
-
                             <div className="flex-1 mt-6 space-y-3">
-                                {pkg.description?.split(",").map((item, index) => (
-                                    <div key={index} className="flex gap-3 text-sm text-gray-600">
-                                        <CheckCircle
-                                            size={18}
-                                            className="text-green-500 shrink-0 mt-0.5"
-                                        />
-                                        <span>{item.trim()}</span>
-                                    </div>
-                                ))}
+                                {pkg.description?.split(/[,\n]+/).map((item, index) => {
+                                    const trimmed = item.trim();
+                                    if (!trimmed) return null;
+                                    return (
+                                        <div key={index} className="flex gap-3 text-sm text-gray-600">
+                                            <CheckCircle
+                                                size={18}
+                                                className="text-green-500 shrink-0 mt-0.5"
+                                            />
+                                            <span>{trimmed}</span>
+                                        </div>
+                                    );
+                                })}
                             </div>
 
                             <div className="mt-8 pt-5 border-t border-slate-100">

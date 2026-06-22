@@ -30,10 +30,10 @@ const SuperAdminTopbar = ({ handleSideBar }) => {
 
 
     return (
-        <div className="backdrop-blur-md justify-between lg:justify-end fixed top-0 left-0 right-0 lg:left-72 h-20 lg:px-12 px-4 bg-white/80 border-b border-slate-200/80 shadow-sm z-40 flex items-center gap-3">
+        <div className="backdrop-blur-md justify-between lg:justify-end fixed top-0 left-0 right-0 lg:left-72 h-20 lg:px-12 px-4 bg-white/80 border-b border-slate-200/60 shadow-sm z-40 flex items-center gap-3">
             <PanelRight
                 onClick={handleSideBar}
-                className="lg:hidden cursor-pointer text-gray-700 w-6 h-6"
+                className="lg:hidden cursor-pointer text-slate-500 hover:text-slate-700 transition-colors w-6 h-6"
             />
 
             <div className="flex gap-5 shrink-0">
@@ -44,36 +44,34 @@ const SuperAdminTopbar = ({ handleSideBar }) => {
                     />
 
                     {open && (
-                        <div className="absolute right-0 top-12 w-64 bg-white rounded-3xl shadow-xl border border-slate-100 p-4 z-50">
+                        <div className="absolute right-0 top-12 w-64 bg-white rounded-2xl shadow-xl border border-slate-200/60 p-4 z-50">
                             <div className="flex flex-col items-center">
-                                <div className="w-12 h-12 rounded-full bg-violet-500 text-white flex items-center justify-center font-semibold">
+                                <div className="w-12 h-12 rounded-xl bg-violet-50 text-violet-600 border border-violet-100 flex items-center justify-center font-bold text-lg shadow-sm">
                                     {user?.name?.charAt(0)?.toUpperCase()}
                                 </div>
 
-                                <h2 className="mt-2 text-sm font-semibold text-slate-700">
+                                <h2 className="mt-3 text-sm font-bold text-slate-800 tracking-tight">
                                     {user?.name}
                                 </h2>
 
-                                <div className="w-10 h-[1px] bg-slate-200 my-2"></div>
+                                <div className="w-12 h-[1px] bg-slate-200/80 my-3"></div>
                             </div>
 
-                            <div className="space-y-3">
-                                <div className="bg-indigo-50 rounded-xl px-4 py-3 flex items-center justify-between">
-                                    <span className="text-sm text-slate-500 font-medium">
+                            <div className="space-y-2">
+                                <div className="bg-slate-50/50 border border-slate-100/50 rounded-xl px-4 py-2.5 flex items-center justify-between">
+                                    <span className="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">
                                         Phone
                                     </span>
-                                    <span className="text-sm text-slate-800 font-semibold">
+                                    <span className="text-xs text-slate-700 font-medium tabular-nums">
                                         {user?.phone || "-"}
                                     </span>
                                 </div>
 
-                               
-
-                                <div className="bg-indigo-50 rounded-xl px-4 py-3 flex items-center justify-between">
-                                    <span className="text-sm text-slate-500 font-medium">
+                                <div className="bg-slate-50/50 border border-slate-100/50 rounded-xl px-4 py-2.5 flex items-center justify-between">
+                                    <span className="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">
                                         Email
                                     </span>
-                                    <span className="text-xs text-slate-800 font-semibold max-w-[120px] truncate">
+                                    <span className="text-xs text-slate-700 font-medium max-w-[120px] truncate">
                                         {user?.email}
                                     </span>
                                 </div>
@@ -81,9 +79,9 @@ const SuperAdminTopbar = ({ handleSideBar }) => {
 
                             <button
                                 onClick={handleLogout}
-                                className="w-full mt-4 flex items-center justify-center gap-2 border border-red-200 text-red-500 text-sm font-medium py-2 rounded-lg hover:bg-red-500 hover:text-white"
+                                className="w-full mt-4 flex items-center justify-center gap-2 border border-red-200 text-red-600 bg-red-50 text-sm font-semibold py-2 rounded-xl hover:bg-red-100 hover:border-red-300 active:scale-[0.98] transition-all duration-150"
                             >
-                                <Power size={15} />
+                                <Power size={14} />
                                 Logout
                             </button>
                         </div>

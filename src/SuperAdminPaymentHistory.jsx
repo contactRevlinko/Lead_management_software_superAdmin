@@ -39,7 +39,7 @@ const SuperAdminPaymentHistory = () => {
     return (
         <div className="w-full">
             <div className="mb-8">
-                <h1 className="text-3xl font-bold text-slate-900">
+                <h1 className="text-2xl font-bold text-slate-900 tracking-tight">
                     Payment History
                 </h1>
                 <p className="text-slate-500 text-sm mt-1">
@@ -49,7 +49,7 @@ const SuperAdminPaymentHistory = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pb-20 lg:hidden">
                 {payments.length === 0 ? (
-                    <div className="col-span-full bg-white rounded-3xl border border-slate-200/80 p-10 text-center shadow-sm">
+                    <div className="col-span-full bg-white rounded-2xl border border-slate-200/60 p-10 text-center shadow-sm">
                         <Users className="mx-auto mb-3 w-12 h-12 text-gray-400" />
                         <h3 className="text-xl font-semibold text-gray-700">
                             No Payments Found
@@ -62,7 +62,7 @@ const SuperAdminPaymentHistory = () => {
                     payments.map((payment, index) => (
                         <div
                             key={payment._id}
-                            className="bg-white rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-5 hover:shadow-md transition-all duration-300"
+                            className="bg-white rounded-2xl border border-slate-200/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-5 hover:shadow-md transition-all duration-300"
                         >
                             {/* Header */}
                             <div className="mb-4 flex justify-between items-start">
@@ -136,7 +136,7 @@ const SuperAdminPaymentHistory = () => {
                 )}
             </div>
 
-            <div className="bg-white hidden md:hidden lg:block rounded-2xl shadow-sm border border-gray-200 overflow-x-auto">
+            <div className="bg-white hidden md:hidden lg:block rounded-2xl shadow-sm border border-slate-200/60 overflow-x-auto">
                 <table className="w-full text-sm text-left">
                     <thead className="bg-indigo-50/60 border-b border-slate-200/80">
                         <tr>

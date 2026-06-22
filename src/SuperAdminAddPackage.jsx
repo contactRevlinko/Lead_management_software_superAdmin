@@ -80,10 +80,10 @@ const SuperAdminAddPackage = ({ setAddPackageModal, getAllPackages, addPackageMo
 
 
     return (
-        <div className="relative bg-white w-full max-w-lg rounded-2xl shadow-xl overflow-hidden p-6">
+        <div className="relative bg-white w-full max-w-lg rounded-2xl border border-slate-200/60 shadow-xl overflow-visible p-6">
             <div className="flex justify-between border-b border-gray-100 pb-4 mb-6">
                 <div>
-                    <h1 className="text-2xl font-bold text-slate-900">
+                    <h1 className="text-2xl font-bold text-slate-900 tracking-tight">
                         Create New Plan
                     </h1>
                     <p className="text-slate-500 text-sm mt-1">Add new subscription package plan</p>
@@ -92,18 +92,18 @@ const SuperAdminAddPackage = ({ setAddPackageModal, getAllPackages, addPackageMo
                 <button
                     type="button"
                     onClick={() => setAddPackageModal(false)}
-                    className="bg-indigo-100 text-indigo-700 font-medium md:w-12 md:h-12 lg:w-10 lg:h-10 w-7 h-7 hover:bg-indigo-200 rounded-lg flex items-center justify-center"
+                    className="w-8 h-8 flex items-center justify-center rounded-xl bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-700 transition-colors"
                 >
                     <X size={18} />
                 </button>
             </div>
 
                 <div className="lg:my-5 md:my-3 my-2 w-full">
-                    <p className="text-sm mb-1 font-medium">Plan Name</p>
-                    <div className={`${form.packageName ? "bg-indigo-50" : "bg-white"} flex border border-gray-300 gap-2 p-2 rounded-xl`}>
-                        <PackageCheck size={17} />
+                    <label className="block text-[13px] font-semibold text-slate-700 mb-1.5">Plan Name</label>
+                    <div className="flex items-center gap-2 border border-slate-200/60 rounded-xl px-3 py-2.5 bg-slate-50/50 focus-within:bg-white focus-within:ring-4 focus-within:ring-indigo-500/10 focus-within:border-indigo-300 transition-all duration-200">
+                        <PackageCheck size={18} className="text-slate-400 shrink-0" />
                         <input
-                            className="outline-none w-full text-sm bg-transparent"
+                            className="outline-none w-full text-sm font-medium text-slate-800 bg-transparent placeholder-slate-400"
                             placeholder="Plan name"
                             name="packageName"
                             value={form.packageName}
@@ -114,11 +114,11 @@ const SuperAdminAddPackage = ({ setAddPackageModal, getAllPackages, addPackageMo
                 </div>
 
                 <div className="lg:my-5 md:my-3 my-2 w-full">
-                    <p className="text-sm mb-1 font-medium">Description</p>
-                    <div className={`${form.description ? "bg-indigo-50" : "bg-white"} flex border border-gray-300 gap-2 p-2 rounded-xl`}>
-                        <FileText size={17} />
+                    <label className="block text-[13px] font-semibold text-slate-700 mb-1.5">Description</label>
+                    <div className="flex gap-2 border border-slate-200/60 rounded-xl px-3 py-2.5 bg-slate-50/50 focus-within:bg-white focus-within:ring-4 focus-within:ring-indigo-500/10 focus-within:border-indigo-300 transition-all duration-200">
+                        <FileText size={18} className="text-slate-400 shrink-0 mt-0.5" />
                         <textarea
-                            className="outline-none w-full text-sm bg-transparent resize-none"
+                            className="outline-none w-full text-sm font-medium text-slate-800 bg-transparent placeholder-slate-400 resize-none"
                             placeholder="Example: 100 leads, Team management, Analytics"
                             name="description"
                             value={form.description}
@@ -131,11 +131,11 @@ const SuperAdminAddPackage = ({ setAddPackageModal, getAllPackages, addPackageMo
 
                 <div className="grid md:grid-cols-2 gap-5">
                     <div>
-                        <p className="text-sm mb-1 font-medium">Price</p>
-                        <div className={`${form.price ? "bg-indigo-50" : "bg-white"} flex border border-gray-300 gap-2 p-2 rounded-xl`}>
-                            <IndianRupee size={17} />
+                        <label className="block text-[13px] font-semibold text-slate-700 mb-1.5">Price</label>
+                        <div className="flex items-center gap-2 border border-slate-200/60 rounded-xl px-3 py-2.5 bg-slate-50/50 focus-within:bg-white focus-within:ring-4 focus-within:ring-indigo-500/10 focus-within:border-indigo-300 transition-all duration-200">
+                            <IndianRupee size={18} className="text-slate-400 shrink-0" />
                             <input
-                                className="outline-none w-full text-sm bg-transparent"
+                                className="outline-none w-full text-sm font-medium text-slate-800 bg-transparent placeholder-slate-400"
                                 placeholder="Enter price"
                                 name="price"
                                 type="number"
@@ -146,11 +146,11 @@ const SuperAdminAddPackage = ({ setAddPackageModal, getAllPackages, addPackageMo
                     </div>
 
                     <div>
-                        <p className="text-sm mb-1 font-medium">Duration</p>
-                        <div className={`${form.duration ? "bg-indigo-50" : "bg-white"} flex border border-gray-300 gap-2 p-2 rounded-xl`}>
-                            <Clock size={17} />
+                        <label className="block text-[13px] font-semibold text-slate-700 mb-1.5">Duration</label>
+                        <div className="flex items-center gap-2 border border-slate-200/60 rounded-xl px-3 py-2.5 bg-slate-50/50 focus-within:bg-white focus-within:ring-4 focus-within:ring-indigo-500/10 focus-within:border-indigo-300 transition-all duration-200">
+                            <Clock size={18} className="text-slate-400 shrink-0" />
                             <input
-                                className="outline-none w-full text-sm bg-transparent"
+                                className="outline-none w-full text-sm font-medium text-slate-800 bg-transparent placeholder-slate-400"
                                 placeholder="Monthly / Yearly"
                                 name="duration"
                                 value={form.duration}
@@ -161,11 +161,11 @@ const SuperAdminAddPackage = ({ setAddPackageModal, getAllPackages, addPackageMo
                 </div>
 
                 <div className="lg:my-5 md:my-3 my-2 w-full">
-                    <p className="text-sm mb-1 font-medium">Duration In Days</p>
-                    <div className={`${form.durationInDays ? "bg-indigo-50" : "bg-white"} flex border border-gray-300 gap-2 p-2 rounded-xl`}>
-                        <CalendarDays size={17} />
+                    <label className="block text-[13px] font-semibold text-slate-700 mb-1.5">Duration In Days</label>
+                    <div className="flex items-center gap-2 border border-slate-200/60 rounded-xl px-3 py-2.5 bg-slate-50/50 focus-within:bg-white focus-within:ring-4 focus-within:ring-indigo-500/10 focus-within:border-indigo-300 transition-all duration-200">
+                        <CalendarDays size={18} className="text-slate-400 shrink-0" />
                         <input
-                            className="outline-none w-full text-sm bg-transparent"
+                            className="outline-none w-full text-sm font-medium text-slate-800 bg-transparent placeholder-slate-400"
                             placeholder="30 / 365"
                             name="durationInDays"
                             type="number"
@@ -174,8 +174,8 @@ const SuperAdminAddPackage = ({ setAddPackageModal, getAllPackages, addPackageMo
                         />
                     </div>
                 </div>
-                            <button
-                className="w-full h-10 md:mt-5 text-white bg-indigo-700 rounded cursor-pointer hover:bg-indigo-800"
+            <button
+                className="mt-4 flex items-center justify-center gap-2 h-11 w-full bg-indigo-600 text-white rounded-xl font-semibold shadow-sm shadow-indigo-200 hover:bg-indigo-700 active:scale-[0.98] transition-all duration-150"
                 onClick={createPlan}
             >
                 Save Plan

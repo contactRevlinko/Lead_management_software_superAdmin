@@ -143,14 +143,14 @@ const SuperAdminLogin = () => {
                                 {/* Email */}
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-1.5">Email Address</label>
-                                    <div className={`flex items-center gap-2 border rounded-xl px-3 py-2.5 transition-all ${email ? "border-indigo-400 bg-indigo-50/40" : "border-gray-300 bg-white"}`}>
-                                        <Mail size={15} className="text-gray-400 shrink-0" />
+                                    <div className="flex items-center gap-2 border border-slate-200/60 rounded-xl px-3 py-2.5 bg-slate-50/50 focus-within:bg-white focus-within:ring-4 focus-within:ring-indigo-500/10 focus-within:border-indigo-300 transition-all duration-200">
+                                        <Mail size={15} className="text-slate-400 shrink-0" />
                                         <input
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
                                             type="email"
                                             placeholder="admin@company.com"
-                                            className="outline-none w-full text-sm bg-transparent text-gray-800 placeholder-gray-400"
+                                            className="outline-none w-full text-sm bg-transparent text-slate-800 placeholder-slate-400 font-medium"
                                         />
                                     </div>
                                 </div>
@@ -158,16 +158,16 @@ const SuperAdminLogin = () => {
                                 {/* Password */}
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-1.5">Password</label>
-                                    <div className={`flex items-center gap-2 border rounded-xl px-3 py-2.5 transition-all ${password ? "border-indigo-400 bg-indigo-50/40" : "border-gray-300 bg-white"}`}>
-                                        <Lock size={15} className="text-gray-400 shrink-0" />
+                                    <div className="flex items-center gap-2 border border-slate-200/60 rounded-xl px-3 py-2.5 bg-slate-50/50 focus-within:bg-white focus-within:ring-4 focus-within:ring-indigo-500/10 focus-within:border-indigo-300 transition-all duration-200">
+                                        <Lock size={15} className="text-slate-400 shrink-0" />
                                         <input
                                             value={password}
                                             onChange={(e) => setPassword(e.target.value)}
                                             type={showPassword ? "text" : "password"}
                                             placeholder="Enter your password"
-                                            className="outline-none w-full text-sm bg-transparent text-gray-800 placeholder-gray-400"
+                                            className="outline-none w-full text-sm bg-transparent text-slate-800 placeholder-slate-400 font-medium"
                                         />
-                                        <button type="button" onClick={() => setShowPassword(!showPassword)} className="text-gray-400 hover:text-gray-600 shrink-0">
+                                        <button type="button" onClick={() => setShowPassword(!showPassword)} className="text-slate-400 hover:text-slate-600 shrink-0 transition-colors">
                                             {showPassword ? <Eye size={15} /> : <EyeOff size={15} />}
                                         </button>
                                     </div>

@@ -125,16 +125,16 @@ const SuperAdminMangement = () => {
   return (
     <div className="w-full">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-slate-900">Admin Management</h1>
+        <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Admin Management</h1>
         <p className="text-slate-500 text-sm mt-1">
           Manage all registered admins from one place.
         </p>
       </div>
 
       <div className="grid grid-cols-2 gap-5 mt-4">
-        <div className="flex items-center gap-4 w-full p-5 bg-white rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300">
+        <div className="flex items-center gap-4 w-full p-5 bg-white rounded-2xl border border-slate-200/60 shadow-sm hover:shadow-md transition-all duration-300">
           <div
-            className="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-50"
+            className="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-50 border border-indigo-100"
           >
             <Users size={22} className="text-indigo-500" />
           </div>
@@ -149,9 +149,9 @@ const SuperAdminMangement = () => {
           </div>
         </div>
 
-        <div className="flex items-center gap-4 w-full p-5 bg-white rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300">
+        <div className="flex items-center gap-4 w-full p-5 bg-white rounded-2xl border border-slate-200/60 shadow-sm hover:shadow-md transition-all duration-300">
           <div
-            className="w-12 h-12 rounded-xl flex items-center justify-center bg-purple-50"
+            className="w-12 h-12 rounded-xl flex items-center justify-center bg-purple-50 border border-purple-100"
           >
             <HandCoins size={22} className="text-purple-500" />
           </div>
@@ -167,7 +167,7 @@ const SuperAdminMangement = () => {
         </div>
       </div>
 
-      <div className="mt-8 bg-white/90 backdrop-blur-xl border border-indigo-100 rounded-3xl p-5 flex flex-col md:flex-row md:items-end gap-4 shadow-sm overflow-visible">  
+      <div className="mt-8 bg-white/90 backdrop-blur-xl border border-slate-200/60 rounded-2xl p-5 flex flex-col md:flex-row md:items-end gap-4 shadow-sm overflow-visible">  
         
         {/* Search Field */}
         <div className="w-full md:flex-1">
@@ -177,7 +177,7 @@ const SuperAdminMangement = () => {
             placeholder="Search by name, email or phone..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full h-11 border border-gray-300 bg-white rounded-xl px-4 text-sm outline-none transition-all focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
+            className="w-full h-11 border border-slate-200/60 bg-slate-50/50 rounded-xl px-4 text-sm outline-none transition-all focus:bg-white focus:border-indigo-300 focus:ring-4 focus:ring-indigo-500/10"
           />
         </div>
 
@@ -224,7 +224,7 @@ const SuperAdminMangement = () => {
       <div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pb-20 lg:hidden mt-10">
           {filteredAdmins?.length === 0 ? (
-            <div className="col-span-full bg-white rounded-3xl border border-slate-200/80 p-10 text-center shadow-sm">
+            <div className="col-span-full bg-white rounded-2xl border border-slate-200/60 p-10 text-center shadow-sm">
               <Users className="mx-auto mb-3 w-12 h-12 text-gray-400" />
               <h3 className="text-xl font-semibold text-gray-700">
                 No Leads Found
@@ -237,7 +237,7 @@ const SuperAdminMangement = () => {
             filteredAdmins?.map((admin) => (
               <div
                 key={admin._id}
-                className="bg-white rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-5 hover:shadow-md transition-all duration-300"
+                className="bg-white rounded-2xl border border-slate-200/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-5 hover:shadow-md transition-all duration-300"
               >
                 {/* Header */}
                 <div className="mb-4">
@@ -348,7 +348,7 @@ const SuperAdminMangement = () => {
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl border border-gray-200 mt-10 overflow-x-auto hidden lg:block">
+      <div className="bg-white rounded-2xl border border-slate-200/60 mt-10 overflow-x-auto hidden lg:block">
         <table className="min-w-[1400px] w-full">
           <thead className="bg-indigo-50/60 border-b border-slate-200/80">
             <tr className="text-left">

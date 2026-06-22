@@ -69,7 +69,7 @@ const SuperAdminRazorpaysettin = () => {
   return (
     <div className="w-full">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-slate-900">
+        <h1 className="text-2xl font-bold text-slate-900 tracking-tight">
           Razorpay Settings
         </h1>
 
@@ -78,9 +78,9 @@ const SuperAdminRazorpaysettin = () => {
         </p>
       </div>
 
-        <div className="space-y-5">
+        <div className="space-y-5 bg-white p-6 rounded-2xl border border-slate-200/60 shadow-sm w-full max-w-2xl">
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-[13px] font-semibold text-slate-700 mb-1.5">
               Razorpay Key ID
             </label>
 
@@ -89,12 +89,12 @@ const SuperAdminRazorpaysettin = () => {
               value={razorpayKeyId}
               onChange={(e) => setRazorpayKeyId(e.target.value)}
               placeholder="rzp_test_xxxxxxxxxx"
-              className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full h-11 bg-slate-50/50 border border-slate-200/60 rounded-xl px-4 text-sm font-medium text-slate-800 placeholder-slate-400 outline-none focus:bg-white focus:border-indigo-300 focus:ring-4 focus:ring-indigo-500/10 transition-all duration-200"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-[13px] font-semibold text-slate-700 mb-1.5">
               Razorpay Key Secret
             </label>
 
@@ -103,13 +103,13 @@ const SuperAdminRazorpaysettin = () => {
               value={razorpayKeySecret}
               onChange={(e) => setRazorpayKeySecret(e.target.value)}
               placeholder="Enter Razorpay Secret"
-              className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full h-11 bg-slate-50/50 border border-slate-200/60 rounded-xl px-4 text-sm font-medium text-slate-800 placeholder-slate-400 outline-none focus:bg-white focus:border-indigo-300 focus:ring-4 focus:ring-indigo-500/10 transition-all duration-200"
             />
           </div>
           <button
             type="button"
             onClick={saveSetting}
-            className="bg-indigo-600 text-white px-6 py-3 rounded-xl hover:bg-indigo-700"
+            className="w-auto h-11 bg-indigo-600 text-white font-semibold px-6 rounded-xl shadow-sm shadow-indigo-100/30 hover:bg-indigo-700 active:scale-[0.98] transition-all"
           >
             Save Settings
           </button>

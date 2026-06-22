@@ -17,7 +17,7 @@ const SuperAdminSidebar = ({ showSideBar, handleSideBar }) => {
         `flex items-center gap-3 rounded-xl px-4 py-3 transition-all duration-200
     ${isActive
             ? "bg-indigo-600 text-white font-semibold shadow-sm shadow-indigo-100/30"
-            : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+            : "text-slate-500 font-medium hover:bg-slate-50 hover:text-slate-900"
         }`;
 
     return (
@@ -25,7 +25,7 @@ const SuperAdminSidebar = ({ showSideBar, handleSideBar }) => {
             className={`
         fixed left-0 top-0 h-screen w-72
         bg-white
-        p-5 border-r border-slate-200/80 z-[100]
+        p-5 border-r border-slate-200/60 z-[100]
         transition-transform duration-300
         ${showSideBar ? "translate-x-0" : "-translate-x-full"}
         lg:translate-x-0
@@ -53,22 +53,22 @@ const SuperAdminSidebar = ({ showSideBar, handleSideBar }) => {
 
                 <NavLink to="/admin-manage" className={navClass}>
                     <UserRoundSearch size={22} />
-                    admin manage
+                    Admin Management
                 </NavLink>
 
                 <NavLink to="/packages" className={navClass}>
                     <Calendar size={22} />
-                    packages
+                    Packages
                 </NavLink>
 
                 <NavLink to="/payment-history" className={navClass}>
                     <BellRing size={22} />
-                    payment history
+                    Payment History
                 </NavLink>
 
                 <NavLink to="/razorpay-setting" className={navClass}>
-                    <BellRing size={22} />
-                    razorpay settings
+                    <Settings size={22} />
+                    Razorpay Settings
                 </NavLink>
 
 
